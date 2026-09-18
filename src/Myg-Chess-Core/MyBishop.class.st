@@ -7,14 +7,16 @@ Class {
 
 { #category : 'accessing' }
 MyBishop >> id [
-	
+
 	^ 'B'
 ]
 
 { #category : 'rendering' }
 MyBishop >> renderPieceOn: aSquare [
 
-	^ aSquare renderBishop: self
+	^ aSquare color isBlack
+		  ifTrue: [ self isWhite ifTrue: [ 'b' ] ifFalse: [ 'v' ] ]
+		  ifFalse: [ self isWhite ifTrue: [ 'B' ] ifFalse: [ 'V' ] ]
 ]
 
 { #category : 'rendering' }
