@@ -24,7 +24,12 @@ MyRook >> targetSquares [
 
 { #category : 'rendering' }
 MyRook >> targetSquaresLegal: aBoolean [
-
-	^ (self upFileLegal: aBoolean) , (self downFileLegal: aBoolean)
-	  , (self leftFileLegal: aBoolean) , (self rightFileLegal: aBoolean)
+    ^ ((self upFileLegal: aBoolean) 
+        select: [ :s | s isOccupied or: s isEmpty ]) , 
+      ((self downFileLegal: aBoolean) 
+        select: [ :s | s isOccupied or: s isEmpty ]) , 
+      ((self leftFileLegal: aBoolean) 
+        select: [ :s | s isOccupied or: s isEmpty ]) , 
+      ((self rightFileLegal: aBoolean) 
+        select: [ :s | s isOccupied or: s isEmpty ])
 ]

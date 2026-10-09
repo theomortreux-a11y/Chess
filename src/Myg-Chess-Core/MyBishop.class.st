@@ -21,9 +21,8 @@ MyBishop >> renderPieceOn: aSquare [
 
 { #category : 'rendering' }
 MyBishop >> targetSquaresLegal: aBoolean [
-
-	^ (self upRightDiagonalLegal: aBoolean)
-	  , (self upLeftDiagonalLegal: aBoolean)
-	  , (self downRightDiagonalLegal: aBoolean)
-	  , (self downLeftDiagonalLegal: aBoolean)
+    ^ ((self upRightDiagonalLegal: aBoolean) select: [ :s | s isOccupied or: s isEmpty ]) ,
+      ((self upLeftDiagonalLegal: aBoolean) select: [ :s | s isOccupied or: s isEmpty ]) ,
+      ((self downRightDiagonalLegal: aBoolean) select: [ :s | s isOccupied or: s isEmpty ]) ,
+      ((self downLeftDiagonalLegal: aBoolean) select: [ :s | s isOccupied or: s isEmpty ])
 ]

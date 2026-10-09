@@ -119,6 +119,11 @@ MyPiece >> downRightDiagonalLegal: aBoolean [
 		  legal: aBoolean
 ]
 
+{ #category : 'testing' }
+MyPiece >> hasPiece [
+    ^ self isEmpty not
+]
+
 { #category : 'accessing' }
 MyPiece >> id [
 
@@ -134,6 +139,16 @@ MyPiece >> isEmpty [
 MyPiece >> isKing [
 	
 	^ false
+]
+
+{ #category : 'testing' }
+MyPiece >> isMyEmptyPiece [
+    ^ false
+]
+
+{ #category : 'testing' }
+MyPiece >> isOccupied [
+    ^ true
 ]
 
 { #category : 'testing' }
